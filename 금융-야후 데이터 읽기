@@ -1,0 +1,20 @@
+import pandas_datareader.data as web
+import datetime as dt
+
+start = dt.datetime(2016, 1 , 1)
+
+end = dt.date.today()
+
+s = web.YahooDailyReader('051910.KS', start,
+                         end, adjust_price = True).read()
+s.tail(10)
+
+
+########
+'''
+Yahoo finance 쓰는법
+'''
+########
+
+
+#s를 이용해서 데이터 불러들여와서 분석하면 됩니다
