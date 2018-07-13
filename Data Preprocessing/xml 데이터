@@ -47,6 +47,13 @@ print(root.attrib)
 for child in root:
     print(child.tag, child.attrib)
 
+'''
+child 요소 는 parent 요소의 하위 요소 이다
+몇몀의 요소들은 children을 가지고 있는데 이는 사실 value요소들이다.
+
+'''
+
+
 
 
 
