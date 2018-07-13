@@ -1,0 +1,12 @@
+'''
+json  데이터
+'''
+import json
+json_data = open('data-text.json').read()
+data = json.loads(json_data)
+for item in data:
+    print(item)
+    
+###############################################
+#파이썬을 활용한 데이터 길들이기 참고
+
