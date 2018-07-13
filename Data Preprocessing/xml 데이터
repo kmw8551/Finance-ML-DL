@@ -1,0 +1,52 @@
+'''
+xml  데이터:
+XML(Extensible Markup Language)은 W3C에서 개발된, 다른 특수한 목적을 갖는 마크업 언어를 만드는데 사용하도록 권장하는 다목적 마크업 언어이다. 
+XML은 SGML의 단순화된 부분집합으로,다른 많은 종류의 데이터를 기술하는 데 사용할 수 있다. 
+XML은 주로 다른 종류의 시스템, 특히 인터넷에 연결된 시스템끼리 데이터를 쉽게 주고 받을 수 있게 하여 HTML의 한계를 극복할 목적으로 만들어졌다.
+
+XML은 문서를 사람과 기계 모두가 읽을 수 있는 형식을 갖도록 규정하고 있다. 
+W3C가 만든 XML 1.0 Specification[1]과 몇몇 다른 관련 명세들[2]과 모든 자유 개방형 표준[3]에서 정의되었다.
+'''
+#파이썬 2.7 코드
+from xml.etree import ElementTree as ET
+
+tree = ET.parse('WHOSIS.xml')
+root = tree.getroot()
+data = root.find('Data')
+
+all_data = []
+for observation in data:
+    record = {}
+    for item in observation:
+        
+        lookup_key = item.attrib.keys()[0]
+        if lookup_key == 'Numeric':
+            rec_key = 'Numeric'
+            rec_value = item.attrib['Numeric']
+        else:
+            rec_key = item.attrib[lookup_key]
+            rec_value = item.attrib['Code']
+        record[rec_key] = rec_value
+    all_data.append(record)
+
+print (all_data)
+    
+###############################################
+#파이썬을 활용한 데이터 길들이기 참고
+
+#%%
+#파이썬 3 버전
+
+import xml.etree.ElementTree as ET
+tree = ET.parse('country_data.xml')
+root = tree.getroot()
+
+print(root.tag)
+print(root.attrib)
+
+for child in root:
+    print(child.tag, child.attrib)
+
+
+
+
