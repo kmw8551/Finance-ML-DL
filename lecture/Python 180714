@@ -80,6 +80,48 @@ a = {'a', 'b', 'c'}
 a.update(('d','e','f'))
 print(a)
 
+#if문 예제
+#문제 1
+money = 5000
+card = False
+if money >= 4000 or card:
+    print("택시 가능")
+else:
+    print("택시 ㄴㄴㄴ")
+#%%
+#문제 2
+hong_n = 23
+lucky_list = [1,9,23,46]
+if hong_n in lucky_list:
+    print("야호")
+#%%
+#문제 3
+    
+num = 3
+if num % 2 ==0:
+    print("짝수")
+else:
+    print("홀수")
+#%%  
+#문제 4
+'''
+문자열 구분은 split으로
+변수.split(문자에서 구분할 기호 또는 공백 등의 경계)
+'''
+a = "나이:30,키:180"
+temp = a.split(",")
+age = temp[0].split(":")[-1]
+height = temp[1].split(":")[-1]
+if int(age) < 30 and int(height) >= 175:
+    print("Ok")
+else:
+    print("no")
+
+#문제 5
+#shirt가 출력
+    
+    
+    
 
 
 
