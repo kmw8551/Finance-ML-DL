@@ -51,6 +51,48 @@ print(min(a.values()))
 #문제 6
 print(list(a.items()))
 
+#집합
+#문제 1
+a = set(['a', 'b', 'c'])
+#%%
+#문제 2
+a = [1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 5]
+a_1 = set(a)
+b = list(a_1)
+print(b)
+#%%
+#문제 3
+s1 = set(['a', 'b', 'c', 'd', 'e'])
+s2 = set(['c', 'd', 'e', 'f', 'g'])
+print(s1 - s2)
+
+#%%
+#문제 4
+
+#vs
+b = set()
+
+#%%
+#문제 5
+a = {'a', 'b', 'c'}
+a.update(('d','e','f'))
+print(a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
