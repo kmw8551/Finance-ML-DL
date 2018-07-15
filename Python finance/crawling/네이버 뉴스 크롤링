@@ -1,0 +1,28 @@
+'''
+beautifulsoup4 web crawling
+'''
+from bs4 import BeautifulSoup
+import urllib.request
+
+OUTPUT_FILE_NAME = 'output.txt'
+URL = 'http://news.naver.com/main/ranking/read.nhn?mid=etc&sid1=111&rankingType=popular_day&oid=469&aid=0000314474&date=20180715&type=1&rankingSeq=10&rankingSectionId=101'
+
+#크롤링 함수
+def get_text(URL):
+    source_code_URL = urllib.request.urlopen(URL)
+    soup = BeautifulSoup(source_code_URL, 'lxml', from_encoding='utf-8')
+    text = ''
+    for item in soup.find_all('div', id='articleBodyContents'):
+        text = text + str(item.find_all(text = True))
+        
+    return text
+
+
+def main():
+    open_output_file = open(OUTPUT_FILE_NAME, 'w')
+    result_text = get_text(URL)
+    open_output_file.write(result_text)
+    open_output_file.close()
+    
+if __name__ == '__main__':
+    main()
