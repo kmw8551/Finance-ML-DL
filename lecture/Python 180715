@@ -151,6 +151,77 @@ while star > 0:
     star -= 2
     space += 1   
 
+#%%
+#문제 1 
+for i in range(1, 101):
+    print(i)
+    
+#문제 2
+result = 0
+for i in range(1, 1001):
+    if i % 5 == 0 :
+        result += i
+print(result)
+#%%
+#문제 3
+A = [70, 60, 55, 75, 95, 90, 80, 80, 85, 100]
+
+print(sum(A)/len(A))
+
+#또는
+
+sum = 0
+for score in A:
+    sum += score
+
+average = sum /len(A)
+print(average)
+
+
+
+#%%
+#딕셔너리로 정리하면 편하다.
+blood_type = ['A', 'B', 'A', 'O', 'AB', 'AB', 'O', 'A', 'B', 'O', 'B', 'AB']
+A_count = 0
+B_count = 0
+O_count = 0
+AB_count =0
+
+
+for t in blood_type:
+    if t == 'A':
+        A_count += 1
+    elif t == 'B':
+        B_count += 1
+    elif t == 'AB':
+        AB_count += 1
+    else:
+        O_count += 1
+        
+print(A_count, B_count, O_count, AB_count)   
+#%%
+blood_type = ['A', 'B', 'A', 'O', 'AB', 'AB', 'O', 'A', 'B', 'O', 'B', 'AB']
+
+result = {}
+for t in blood_type:
+    if t in result:
+        result[t] += 1
+    else:
+        result[t] = 1
+print(result)
+
+#%%
+number = [1,2,3,4,5]
+result = [n*2 for n in number if n%2 == 1]
+print(result)
+
+#%%
+vowels ='aeiou'
+s = 'Life is too short, you need python'
+result = [n for n in s if n not in vowels]
+print(result)
+print("".join(result))
+
         
         
         
