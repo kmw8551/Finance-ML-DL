@@ -1,0 +1,96 @@
+#발췌: 파이썬 답게 코딩하기 ; 심경섭 (iterator 부분)
+
+'''
+for 문 관련
+
+#### iterable vs iterator ####
+
+모든 iterator 객체는 iterable하다 => True
+iterable이 보다 큰 개념
+
+iterable 하다는 것은 한번에 하나씩 값을 반환할 수 있다.
+~할 수 있다. 라는 것은 가능의 의미로 "이것만 된다!!!!"가 아니다.
+정리하자면 iterable하다는 것은 한번에 모든 값을 반환할수도, 
+한번에 하나씩만 반환할 수도 있다는 의미
+
+iterator는 반면에 한번에 하나씩만 값을 반환하는 객체이다.
+
+'''
+#ex)
+def main():
+    x = [1,2,3]
+    y = {"red":1, "blue":2, "green":3}
+    
+    x_iterator = iter(x)
+    y_iterator = iter(y)
+    
+    print("===print type===")
+    print("list type: %s"  % type(x))
+    print("dict type: %s" % type(y))
+    print("list iterator type: %s"  % type(x_iterator))
+    print("dict iterator type: %s" % type(y_iterator))
+
+    print(" print next ")
+    print("list next: %s"  % next(x))
+    print("dict next: %s" % next(y))
+    print("list iterator 'next' : %s"  % next(x_iterator))
+    print("dict iterator 'next' : %s" % next(y_iterator))
+
+if __name__ == "__main__":
+    main()  
+
+'''
+===print type===
+list type: <class 'list'>
+dict type: <class 'dict'>
+list iterator type: <class 'list_iterator'>
+dict iterator type: <class 'dict_keyiterator'>
+ print next 
+Traceback (most recent call last):
+
+  File "<ipython-input-1-bd7eb88015e7>", line 1, in <module>
+    runfile('C:/Users/KGITBank/.spyder-py3/temp.py', wdir='C:/Users/KGITBank/.spyder-py3')
+
+  File "D:\new\lib\site-packages\spyder\utils\site\sitecustomize.py", line 705, in runfile
+    execfile(filename, namespace)
+
+  File "D:\new\lib\site-packages\spyder\utils\site\sitecustomize.py", line 102, in execfile
+    exec(compile(f.read(), filename, 'exec'), namespace)
+
+  File "C:/Users/KGITBank/.spyder-py3/temp.py", line 38, in <module>
+    main()
+
+  File "C:/Users/KGITBank/.spyder-py3/temp.py", line 32, in main
+    print("list next: %s"  % next(x))
+
+TypeError: 'list' object is not an iterator
+'''
+
+############################################################
+'''
+iterator가 그러면, iterable처럼 여러개의 값을 못갖냐고 하면 그건 아닙니다.
+다만 한번에 하나씩 값을 반환하기 위해서는 어디까지 반환했고, 어디서부터
+반환하면 되는지 그 상태를 알고 있어야 합니다.
+'''
+'''
+for 문에서 이 이야기를 거론하는 이유는 리스트, 튜플 등은 iterable한 객체이지만
+for문 사용시, 한개씩 값을 반환하는 것을 볼 수 있습니다.
+ex) 
+    a = [1,2,3,4,5]
+    for i in a:
+
+그래서 리스트를 iterator로 착각하는 경우가 있는데 그것은 잘못된 생각입니다.
+for문에서 자동적으로 iterable 객체를 임시로 iterator로 변환하기 때문입니다.
+'''
+'''
+#####
+해당 개념을 잘 숙지해야 차후에 중급 레벨로 넘어가서 
+generator와 yield에 대해 배울 때 혼동이 생기질 않습니다.
+'''
+
+
+
+
+
+
+
