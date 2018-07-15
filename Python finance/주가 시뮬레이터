@@ -1,0 +1,20 @@
+# n-일 동안의 주가를 생성하고 차트를 그려본다.
+def simulate(corr, n):
+    # 상관관계 주가를 생성한다
+    s = CorStockPrice(#여기 부분에 두 주가의 상관관계 주가를 그린다. 알아서 쓸것 )
+    
+    # s1과 s2의 실제 수익률 상관계수를 계산한다
+    s['rtnA'] = pd.DataFrame(s['A']).apply(lambda x: x - x.shift(1))
+    s['rtnB'] = pd.DataFrame(s['B']).apply(lambda x: x - x.shift(1))
+    s = s.dropna()
+    s.index = range(len(s.index))
+    realCorr = np.corrcoef(s['rtnA'], s['rtnB'])[1,0]
+    
+    plt.figure(1, figsize=(7,3))
+    plt.title("Correlated Stocks (Corr = %.2f)" % realCorr)
+    plt.plot(s['A'], linewidth=1, color='blue', label = 'Stock-A')
+    plt.plot(s['B'], linewidth=1, color='red', label = 'Stock-B')
+    plt.xlabel('days')
+    plt.ylabel('Stock Price')
+    plt.legend()
+    plt.show()
