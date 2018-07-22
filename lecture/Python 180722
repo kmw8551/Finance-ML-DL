@@ -1,0 +1,98 @@
+'''
+정수 배열(int array)이 주어지면 두번째로 큰 값을 프린트하시오.
+
+예제)
+
+Input: [10, 5, 4, 3, -1]
+
+Output: 5
+
+
+Input: [3, 3, 3]
+
+Output: Does not exist.
+
+
+Input: [5,5,4]
+
+Output: 4
+'''
+
+'''
+문제에서 요구하는 것: 정수배열(리스트)이 주어지면, 두번째로 큰 값을 
+프린트하라고 했습니다.
+
+
+접근방식
+    접근 방법: 리스트를 입력받겠죠?
+    
+    1. 입력받은 리스트에서 중복요소들을 제거
+    2. 최댓값을 파악 (제거)
+    3. 다시 최댓값을 파악
+    4. 리스트의 길이가 0일때 ,0이 아닐때 나눠서 출력
+ 
+    
+    사용할 함수: 
+        중복제거는  set()
+        다시 리스트로! : list()
+        max()
+        a.remove("여기 안에는 값")
+        a.pop("여기 안에는 인덱스")
+        
+출력 방식:
+        두가지로 나눠서 리스트 길이 > 0
+             두번째로 큰 값 출력
+        
+        리스트 길이 == 0:
+            does not exist
+              
+
+'''
+n = input()
+
+
+
+
+
+#%%
+def second_max(input_list):
+    remove_duplicate = set(input_list) # 리스트 내 중복제거
+    set_to_list = list(remove_duplicate) #다시 리스트로 변환
+    temp = max(set_to_list) # 리스트 내 최대값 찾기
+    set_to_list.remove(temp) # 리스트내 최대값 제거 (두번째 값이 최대값으로 됨)
+    if len(set_to_list) > 0: #리스트 내 자료가 있을 경우
+        print(max(set_to_list))  #출력
+    else:
+        print("Does not exist.") # 제거시 리스트 내 자료가 없을 경우
+        
+    
+second_max([1.5 , 8.94, 6.7, -2.4, 8.949])
+second_max([3, 3, 3])
+second_max([10, 5, 4, 3, -1])
+second_max([5,5,4])
+second_max([1, 2, 3, 48, 53, 421, 54, 6, 6, 7, 2, 48, 54])
+second_max([-1, -5, -5, 9, -8])
+second_max([10, 10, 10, 5, 11, 2])
+second_max([1, 1, 1])
+
+
+#%%
+def s_m(l):
+    new = set(l)
+    print(new)
+    new_l = list(new)
+    print(new_l)
+    new_l.sort()
+    print(new_l)
+    king = max(new_l)
+    new_l.remove(king)
+    if len(new_l) > 0: #리스트 내 자료가 있을 경우
+        print(max(new_l))  #출력
+    else:
+        print("Does not exist.") 
+   
+
+s_m([1.5 , 8.94, 6.7, -2.4, 8.949])
+s_m([3, 3, 3])
+s_m([10, 5, 4, 3, -1])
+s_m([5,5,4])
