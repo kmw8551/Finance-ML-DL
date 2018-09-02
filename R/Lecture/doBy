@@ -1,0 +1,28 @@
+install.packages("doBy")
+library('doBy')
+summaryBy(Sepal.Width + Sepal.Length ~ Species, iris)
+summaryBy(Sepal.Width + Sepal.Length ~ Species, iris, FUN=sum)
+summaryBy(Sepal.Width + Sepal.Length ~ Species, iris, keep.names = TRUE)
+summaryBy(Sepal.Width + Sepal.Length ~ Species, iris, FUN=c(mean,sum))
+
+head(orderBy(~Species+Sepal.Length, data = iris))
+
+sampleBy2 <- function(formula, frac=0.1, replace=FALSE, data=parent.frame(), systematic=FALSE){
+  temp <- splitBy(formula, data=data)
+  temp <- lapply(temp, function(dat){
+    if(systematic==TRUE){
+      rand <-  sample(1:floor(1/frac), 1)
+      idx <- seq(rand, nrow(dat), 1/frac)
+    }else{
+      idx <- sort(sample(1:nrow(dat),
+                         size=round(frac*nrow(dat)),
+                         replace=replace))
+    }
+    dat[idx,]
+    
+  })
+temp <- do.call("rbind", temp)
+return(temp)
+}
+
+sampleBy2(~Species, frac=0.1, data=iris, systematic = TRUE)
