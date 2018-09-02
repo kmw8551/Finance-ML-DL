@@ -1,0 +1,12 @@
+iris.species <- split(iris, iris$Species)
+str(iris.species)
+iris.sepal.length <- split(iris, iris$Sepal.Length > 5) 
+str(iris.sepal.length)
+head(iris.sepal.length$'TRUE')
+iris.species.setosa <- subset(irs, Species=="setosa")
+str(iris.species.setosa)
+iris.species.setosa <- subset(iris, select=c(Sepal.Length, Sepal.Width, Species))
+#subset() 함수는 조건을 만족하는 벡터, 행렬 또는 데이터 프레임의 하위 집합을 반환합니다.
+
+iris.sub <- subset(iris, select=-c(Sepal.Length, Sepal.Width, Species))
+
