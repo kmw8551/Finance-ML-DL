@@ -1,0 +1,9 @@
+install.packages("plyr")
+library(plyr)
+
+adply(iris[, 1:4], 2, function(col){sum(col)})
+ddply(iris, .(Species), function(group) {data.frame(mean=mean(group$Sepal.Length))})
+dfx <- data.frame(group = c(rep('A', 8), rep('B', 15), rep('C',6)),
+                  sex = sample(c('M' , 'F'), size=29, replace=TRUE),
+                  age = runif(n=29, min=18, max=54))
+dfx
