@@ -1,7 +1,6 @@
-########################################
-은닉 마르코프 모델
-########################################
+
 #은닉 마코프 모델
+```R
 
 library('depmixS4')
 library(dplyr)
@@ -261,3 +260,4 @@ source('D:\\Projects\\Workplace\\Models\\HMM1.R')
 hmmInference(s, 4 ,  chart=TRUE) #(데이터명, state 갯수, family, chart=TRUE)
 #family 는 gaussian() 또는 poisson()
 
+```
