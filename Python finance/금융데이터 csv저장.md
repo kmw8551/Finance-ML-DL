@@ -1,3 +1,4 @@
+```python
 import pandas as pd
 import numpy as np
 import itertools as it
@@ -43,10 +44,10 @@ def CalFeatureSet(A, B, nDay):
     pair['zspread'] = np.nan
     fr = 0
     for i in range(nDay-1, len(pair)):
-        # n-기간 동안의 수익률 상관계수를 계산한다 (Moving Correlation)
+        # n-기간 동안의 수익률 상관계수를 계산한다 
         pair['rcor'][i] = np.corrcoef(pair['rtnA'][fr:i], pair['rtnB'][fr:i])[0,1]
         
-        # n-기간 동안의 로그 가격 상관계수를 계산한다 (Moving Correlation)
+        # n-기간 동안의 로그 가격 상관계수를 계산한다 
         pair['pcor'][i] = np.corrcoef(pair['logA'][fr:i], pair['logB'][fr:i])[0,1]
         
         # n-기간 동안의 수익률 기준 회귀분석 베타를 계산한다 (Moving Beta). 종목-B가 독립변수.
@@ -92,3 +93,4 @@ def create(nDay, nFrom, nTo):
         pair.to_csv("data/pairData/train" + str(i) + ".csv")
         print("%d) %s-%s 학습용 데이터를 저장했습니다." % (i, stockList[p[0]][1], stockList[p[1]][1]))
         i += 1
+```
