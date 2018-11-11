@@ -1,5 +1,5 @@
 ### 금융 야후 데이터 읽기
-```python
+``` python
 import pandas_datareader.data as web
 import datetime as dt
 
@@ -13,6 +13,7 @@ s.tail(10)
 
 ```
 ########
+``` python
 '''
 Yahoo finance 쓰는법
 '''
@@ -22,6 +23,8 @@ Yahoo finance 쓰는법
 #s를 이용해서 데이터 불러들여와서 분석하면 됩니다.
 
 안 될 경우 시행하는 법은 다음과 같습니다.
+```
+
 ``` python
 import pandas as pd
 pd.core.common.is_list_like = pd.api.types.is_list_like
