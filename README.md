@@ -16,7 +16,7 @@
 
 #This git is for Financial Machine Learning, Anyone who are interest in finance & Machine Learning are welcome!!!!
 
-#Thanks to KOSA and Insight campus 
+#Reference :Insight campus - Prof. Cho  (조성현 교수님의 코드 참고) 
 
 #All codes are written by Min Woong Kang. Not all codes are created by me, sometimes I got inspiration from others.
 
