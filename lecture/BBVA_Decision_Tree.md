@@ -1,3 +1,7 @@
+# https://www.kaggle.com/alvarob96/spanish-stocks-historical-data
+
+using BBVA dataset
+
 ```R
 # BBVA의 데이터 셋을 이용하도록 한다.
 library(quantmod)
